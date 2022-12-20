@@ -12,7 +12,7 @@ trigger TaskTrigger on Task (after insert) {
 
     for(Task t : oldTasks){
         if(t.Activity_Call_Result__c == 'not home' || t.Activity_Call_Result__c == 'left message'){
-            Contact.CountCalls__c = Contact.CountCalls__c + 1;
+            t.Contact.CountCalls__c = t.Contact.CountCalls__c + 1;
             updatedTasks.add(t);
         }
     }
